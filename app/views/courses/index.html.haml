@@ -1,0 +1,20 @@
+%h1 Courses
+
+%table.table
+  %thead
+    %tr
+      %th title
+      %th description
+      %th
+      %th
+      %th
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.title
+        %td= course.description
+        %td= link_to 'Show', course
+        %td= link_to 'Edit', edit_course_path(course)
+        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure' }
+
+= link_to "New course", new_course_path
